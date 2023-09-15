@@ -9,5 +9,7 @@ abstract class AppAssets {
   static const String quranScreenLogo = '${imagesPath}quran_screen_logo.png';
   static const String background = '${imagesPath}background.png';
 
-  //fonts
+  //files
+  static const String filesPath = "assets/files/";
+  static const String surah = "${filesPath}surah/";
 }

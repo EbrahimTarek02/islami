@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class QuranScreen extends StatelessWidget {
+class AhadeethScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.indigo,
+      color: Colors.black,
     );
   }
 }

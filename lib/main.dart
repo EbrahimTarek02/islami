@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islami/ui/quran_screen/quran_screen.dart';
+import 'package:islami/ui/home_screen/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,10 +15,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 
       routes: {
-        QuranScreen.routeName : (_) => QuranScreen(),
+        HomeScreen.routeName : (_) => HomeScreen(),
       },
 
-      initialRoute: QuranScreen.routeName,
+      initialRoute: HomeScreen.routeName,
     );
   }
 }

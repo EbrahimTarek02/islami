@@ -7,9 +7,11 @@ abstract class AppAssets {
   static const String icSebha = '${imagesPath}sebha_tab.png';
   static const String icRadio = '${imagesPath}radio_tab.png';
   static const String quranScreenLogo = '${imagesPath}quran_screen_logo.png';
+  static const String ahadeethScreenLogo = '${imagesPath}ahadeeth_screen_logo.png';
   static const String background = '${imagesPath}background.png';
 
   //files
   static const String filesPath = "assets/files/";
   static const String surah = "${filesPath}surah/";
+  static const String hadith = "${filesPath}hadith/";
 }

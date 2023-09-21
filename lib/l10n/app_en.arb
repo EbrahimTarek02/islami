@@ -1,0 +1,16 @@
+{
+  "islami": "Islami",
+  "quran" : "Quran",
+  "ahadeeth" : "Ahadeeth",
+  "sebha" : "Sebha",
+  "radio" : "Radio",
+  "surahName" : "Sūrah Name",
+  "numberOfAyat" : "Number of āyāt",
+  "numberOfTasbeehat" : "Number of tasbeehat",
+  "sobhanAllah" : "Sobhan Allah",
+  "alHamduLillah" : "Al Hamdu Lillah",
+  "laIlahaEllaAllah" : "La ilaha ella Allah",
+  "allahAkbar" : "Allah Akbar",
+  "laHawlaWaLaQuaEllaBillah" : "La hawla wa la qua ella billah",
+  "alQuranAlKarimStation" : "Al Quran Al Karim Station"
+}

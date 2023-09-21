@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/constants/app_assets.dart';
 import 'package:islami/constants/app_theme_colors.dart';
 import 'package:islami/constants/app_theme_text_style.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SebhaScreen extends StatefulWidget {
 
@@ -11,14 +13,18 @@ class SebhaScreen extends StatefulWidget {
 
 class _SebhaScreenState extends State<SebhaScreen> {
   int counter = 0, index = 0;
-  List<String> tasbeehList = [
-    'Sobhan Allah', 'Al Hamdu Lillah', 'La ilaha ella Allah', 'Allah Akbar', 'La hawla wa la qua ella billah'
-  ];
   double rotationAngle = 0.0;
 
   @override
   Widget build(BuildContext context) {
-    double sebhaPadding = MediaQuery.of(context).size.height / 19.527272727272727;
+    List<String> tasbeehList = [
+      AppLocalizations.of(context)!.sobhanAllah,
+      AppLocalizations.of(context)!.alHamduLillah,
+      AppLocalizations.of(context)!.laIlahaEllaAllah,
+      AppLocalizations.of(context)!.allahAkbar,
+      AppLocalizations.of(context)!.laHawlaWaLaQuaEllaBillah,
+    ];
+    double sebhaPadding = MediaQuery.of(context).size.height / 18.5;
 
     void onElevatedButtonPressed() {
       rotationAngle += 0.1;
@@ -32,6 +38,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
 
       });
     }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -48,7 +55,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
                 child: Transform.rotate(
                   angle: rotationAngle,
                   child: Container(
-                    height: MediaQuery.of(context).size.height / 4.111004784688995,
+                    height: MediaQuery.of(context).size.height / 4,
                     child: Image.asset(AppAssets.bodyOfSebha),
                   ),
                 ),
@@ -63,7 +70,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
             children: [
               Spacer(flex: 35,),
               Text(
-                'Number of tasbeehat',
+                AppLocalizations.of(context)!.numberOfTasbeehat,
                 style: AppThemeTextStyle.tableHeadTextStyle,
               ),
               Container(

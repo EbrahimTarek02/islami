@@ -1,0 +1,16 @@
+{
+  "islami": "إسلامى",
+  "quran" : "القرآن",
+  "ahadeeth" : "الأحاديث",
+  "sebha" : "السبحة",
+  "radio" : "الراديو",
+  "surahName" : "اسم السورة",
+  "numberOfAyat" : "عدد الآيات",
+  "numberOfTasbeehat" : "عدد التسبيحات",
+  "sobhanAllah" : "سبحان الله",
+  "alHamduLillah" : "الحمد لله",
+  "laIlahaEllaAllah" : "لا إله إلا الله",
+  "allahAkbar" : "الله أكبر",
+  "laHawlaWaLaQuaEllaBillah" : "لا حول ولا قوة إلا بالله",
+  "alQuranAlKarimStation" : "إذاعة القرآن الكريم"
+}

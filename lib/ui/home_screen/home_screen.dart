@@ -6,6 +6,7 @@ import 'package:islami/ui/ahadeeth_screen/ahadeeth_screen.dart';
 import 'package:islami/ui/quran_screen/quran_screen.dart';
 import 'package:islami/ui/radio_screen/radio_screen.dart';
 import 'package:islami/ui/sebha_screen/sebha_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
 
@@ -43,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           backgroundColor: AppThemeColor.transparent,
           title: Text(
-            'Islami',
+            AppLocalizations.of(context)!.islami,
             style: AppThemeTextStyle.appBarTextStyle,
           ),
           centerTitle: true,
@@ -74,19 +75,19 @@ class _HomeScreenState extends State<HomeScreen> {
         items: [
           BottomNavigationBarItem(
             icon: ImageIcon(AssetImage(AppAssets.icQuran)),
-            label: 'Quran',
+            label: AppLocalizations.of(context)!.quran,
           ),
           BottomNavigationBarItem(
             icon: ImageIcon(AssetImage(AppAssets.icAhadeeth)),
-            label: 'Ahadeeth',
+            label: AppLocalizations.of(context)!.ahadeeth,
           ),
           BottomNavigationBarItem(
             icon: ImageIcon(AssetImage(AppAssets.icSebha)),
-            label: 'Sebha',
+            label: AppLocalizations.of(context)!.sebha,
           ),
           BottomNavigationBarItem(
             icon: ImageIcon(AssetImage(AppAssets.icRadio)),
-            label: 'Radio',
+            label: AppLocalizations.of(context)!.radio,
           ),
         ],
       ),

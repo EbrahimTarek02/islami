@@ -7,6 +7,7 @@ import 'package:islami/ui/quran_screen/quran_screen.dart';
 import 'package:islami/ui/radio_screen/radio_screen.dart';
 import 'package:islami/ui/sebha_screen/sebha_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami/ui/settings_screen/settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
 
@@ -23,7 +24,8 @@ class _HomeScreenState extends State<HomeScreen> {
     QuranScreen(),
     AhadeethScreen(),
     SebhaScreen(),
-    RadioScreen()
+    RadioScreen(),
+    SettingsScreen()
   ];
 
   @override
@@ -88,6 +90,10 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: ImageIcon(AssetImage(AppAssets.icRadio)),
             label: AppLocalizations.of(context)!.radio,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: AppLocalizations.of(context)!.settings,
           ),
         ],
       ),

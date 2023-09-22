@@ -12,5 +12,8 @@
   "laIlahaEllaAllah" : "La ilaha ella Allah",
   "allahAkbar" : "Allah Akbar",
   "laHawlaWaLaQuaEllaBillah" : "La hawla wa la qua ella billah",
-  "alQuranAlKarimStation" : "Al Quran Al Karim Station"
+  "alQuranAlKarimStation" : "Al Quran Al Karim Station",
+  "settings" : "Settings",
+  "darkMode" : "Dark Mode",
+  "chooseLanguage" : "Choose Language"
 }

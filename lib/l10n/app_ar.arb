@@ -12,5 +12,8 @@
   "laIlahaEllaAllah" : "لا إله إلا الله",
   "allahAkbar" : "الله أكبر",
   "laHawlaWaLaQuaEllaBillah" : "لا حول ولا قوة إلا بالله",
-  "alQuranAlKarimStation" : "إذاعة القرآن الكريم"
+  "alQuranAlKarimStation" : "إذاعة القرآن الكريم",
+  "settings" : "الإعدادات",
+  "darkMode" : "الوضع الليلى",
+  "chooseLanguage" : "اختر اللغة"
 }

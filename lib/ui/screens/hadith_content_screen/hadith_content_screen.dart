@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../constants/app_assets.dart';
-import '../../constants/app_theme_colors.dart';
-import '../../constants/app_theme_text_style.dart';
+import 'package:islami/providers/settings_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../../utils/app_assets.dart';
+import '../../utils/app_theme_colors.dart';
+import '../../utils/app_theme_text_style.dart';
 
-class HadithScreen extends StatefulWidget {
+class HadithContentScreen extends StatefulWidget {
 
   static const String routeName = 'hadith screen route name';
 
   @override
-  State<HadithScreen> createState() => _HadithScreenState();
+  State<HadithContentScreen> createState() => _HadithContentScreenState();
 }
 
-class _HadithScreenState extends State<HadithScreen> {
+class _HadithContentScreenState extends State<HadithContentScreen> {
   String hadith = '', hadithTopic = '';
 
   @override
   Widget build(BuildContext context) {
+
+    SettingsProvider provider = Provider.of(context);
 
     var index = ModalRoute.of(context)!.settings.arguments as int;
 
@@ -42,7 +47,7 @@ class _HadithScreenState extends State<HadithScreen> {
 
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage(AppAssets.background),
+              image: AssetImage(provider.isDark ? AppAssets.backgroundDark : AppAssets.backgroundLight),
               fit: BoxFit.cover
           )
       ),
@@ -51,14 +56,11 @@ class _HadithScreenState extends State<HadithScreen> {
           backgroundColor: AppThemeColor.transparent,
 
           appBar: AppBar(
-            backgroundColor: AppThemeColor.transparent,
-            iconTheme: IconThemeData(color: AppThemeColor.accent),
+            iconTheme: IconThemeData(color: provider.isDark ? AppThemeColor.white : AppThemeColor.accent),
             title: Text(
-              'Islami',
-              style: AppThemeTextStyle.appBarTextStyle,
+              AppLocalizations.of(context)!.islami,
+              style: provider.isDark ? AppThemeTextStyle.appBarDarkTextStyle : AppThemeTextStyle.appBarTextStyle,
             ),
-            centerTitle: true,
-            elevation: 0.0,
           ),
 
         body: hadith.isNotEmpty ?
@@ -67,11 +69,11 @@ class _HadithScreenState extends State<HadithScreen> {
             margin: EdgeInsets.all(20.0),
             padding: EdgeInsets.all(20.0),
             decoration: BoxDecoration(
-              color: AppThemeColor.white,
+              color: provider.isDark ? AppThemeColor.primaryDark : AppThemeColor.white,
               borderRadius: BorderRadius.circular(25.0),
               boxShadow: [
                 BoxShadow(
-                  color: AppThemeColor.grey,
+                  color: provider.isDark ? AppThemeColor.accentDark : AppThemeColor.grey,
                   blurRadius: 6.0,
                 ),
               ],
@@ -82,22 +84,23 @@ class _HadithScreenState extends State<HadithScreen> {
                   Text(
                     hadithTopic,
                     maxLines: 1,
-                    style: AppThemeTextStyle.tableHeadTextStyle.copyWith(fontSize: 30.0),
+                    style: provider.isDark ? AppThemeTextStyle.tableContentDarkTextStyle : AppThemeTextStyle.tableContentTextStyle,
                   ),
                   Divider(
-                    color: AppThemeColor.primary,
+                    color: provider.isDark ? AppThemeColor.accentDark : AppThemeColor.primary,
                     thickness: 2.0,
                   ),
                   Text(
                     hadith,
                     textDirection: TextDirection.rtl,
-                    style: AppThemeTextStyle.tableHeadTextStyle,
+                    style: provider.isDark ? AppThemeTextStyle.tableContentDarkTextStyle.copyWith(fontSize: 20.0)
+                        : AppThemeTextStyle.tableContentTextStyle.copyWith(fontSize: 20.0),
                   ),
                 ],
               ),
             ),
           ),
-        ) : Center(child: CircularProgressIndicator()),
+        ) : Center(child: CircularProgressIndicator(color: provider.isDark ? AppThemeColor.accentDark : AppThemeColor.primary)),
       ),
     );
   }

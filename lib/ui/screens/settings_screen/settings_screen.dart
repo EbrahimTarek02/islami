@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:islami/constants/app_theme_colors.dart';
-import 'package:islami/constants/app_theme_text_style.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/providers/settings_provider.dart';
 import 'package:provider/provider.dart';
+import '../../utils/app_theme_colors.dart';
+import '../../utils/app_theme_text_style.dart';
 
 class SettingsScreen extends StatelessWidget {
 
@@ -17,11 +17,12 @@ class SettingsScreen extends StatelessWidget {
         margin: EdgeInsets.all(30.0),
         padding: EdgeInsets.all(20.0),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: provider.isDark ? AppThemeColor.primaryDark : AppThemeColor.white,
           borderRadius: BorderRadius.circular(20.0),
           boxShadow: [
             BoxShadow(
-              color: AppThemeColor.grey
+              color: provider.isDark ? AppThemeColor.accentDark : AppThemeColor.grey,
+              blurRadius: 6.0
             ),
           ]
         ),
@@ -34,12 +35,12 @@ class SettingsScreen extends StatelessWidget {
               children: [
                 Text(
                   AppLocalizations.of(context)!.darkMode,
-                  style: AppThemeTextStyle.tableHeadTextStyle,
+                  style: provider.isDark ? AppThemeTextStyle.tableContentDarkTextStyle : AppThemeTextStyle.tableContentTextStyle,
                 ),
                 Switch(
                   value: provider.isDark,
                   onChanged: (value) => provider.changeMode(),
-                  activeColor: AppThemeColor.primary,
+                  activeColor: AppThemeColor.accentDark,
                 ),
               ],
             ),
@@ -50,8 +51,13 @@ class SettingsScreen extends StatelessWidget {
                 DropdownMenuItem(child: Text('العربية'), value: 'ar',),
                 DropdownMenuItem(child: Text('English'), value: 'en',),
               ],
-              hint: Text(AppLocalizations.of(context)!.chooseLanguage),
-              style: AppThemeTextStyle.appBarTextStyle.copyWith(fontSize: 20),
+              hint: Text(
+                AppLocalizations.of(context)!.chooseLanguage,
+                style: provider.isDark ? AppThemeTextStyle.tableContentDarkTextStyle : AppThemeTextStyle.tableContentTextStyle,
+              ),
+              dropdownColor: provider.isDark ? AppThemeColor.primaryDark : AppThemeColor.white,
+              style: provider.isDark ? AppThemeTextStyle.tableContentDarkTextStyle : AppThemeTextStyle.tableContentTextStyle,
+              iconEnabledColor: provider.isDark ? AppThemeColor.accentDark : AppThemeColor.primary,
               onChanged: (value) => provider.changeLanguage(value.toString()),
             ),
           ],

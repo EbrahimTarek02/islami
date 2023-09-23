@@ -15,5 +15,7 @@
   "alQuranAlKarimStation" : "Al Quran Al Karim Station",
   "settings" : "Settings",
   "darkMode" : "Dark Mode",
-  "chooseLanguage" : "Choose Language"
+  "chooseLanguage" : "Choose Language",
+  "order" : "Order",
+  "ayat" : "āyāt"
 }

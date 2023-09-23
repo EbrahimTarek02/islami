@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:islami/constants/app_assets.dart';
-import 'package:islami/constants/app_constants.dart';
-import 'package:islami/constants/app_theme_colors.dart';
-import 'package:islami/constants/app_theme_text_style.dart';
+import 'package:islami/providers/settings_provider.dart';
+import 'package:islami/ui/utils/app_assets.dart';
+import 'package:islami/ui/utils/app_constants.dart';
 import 'package:islami/constants/surah_screen_arguments.dart';
-import 'package:islami/ui/surah_screen/surah_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+import '../../utils/app_theme_colors.dart';
+import '../../utils/app_theme_text_style.dart';
+import '../surah_content_screen/surah_content_screen.dart';
 
 class QuranScreen extends StatelessWidget {
 
@@ -16,20 +18,21 @@ class QuranScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    SettingsProvider provider = Provider.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Expanded(
-          flex: 29,
+          flex: 30,
           child: Image.asset(AppAssets.quranScreenLogo)
         ),
-        Spacer(flex: 1),
         Expanded(
           flex: 9,
           child: Column(
             children: [
               Divider(
-                color: AppThemeColor.primary,
+                color: provider.isDark ? AppThemeColor.accentDark : AppThemeColor.primary,
                 thickness: 2.0,
                 height: 2.0,
               ),
@@ -38,26 +41,26 @@ class QuranScreen extends StatelessWidget {
                   Expanded(
                     child: Text(
                       AppLocalizations.of(context)!.surahName,
-                      style: AppThemeTextStyle.tableHeadTextStyle,
+                      style: provider.isDark ? AppThemeTextStyle.tableHeadDarkTextStyle : AppThemeTextStyle.tableHeadTextStyle,
                       textAlign: TextAlign.center,
                     ),
                   ),
                   Container(
-                    color: AppThemeColor.primary,
+                    color: provider.isDark ? AppThemeColor.accentDark : AppThemeColor.primary,
                     width: 2.0,
                     height: MediaQuery.of(context).size.height / 15.4,
                   ),
                   Expanded(
                     child: Text(
                       AppLocalizations.of(context)!.numberOfAyat,
-                      style: AppThemeTextStyle.tableHeadTextStyle,
+                      style: provider.isDark ? AppThemeTextStyle.tableHeadDarkTextStyle : AppThemeTextStyle.tableHeadTextStyle,
                       textAlign: TextAlign.center,
                     ),
                   ),
                 ],
               ),
               Divider(
-                color: AppThemeColor.primary,
+                color: provider.isDark ? AppThemeColor.accentDark : AppThemeColor.primary,
                 thickness: 2.0,
                 height: 0.0,
               ),
@@ -67,11 +70,10 @@ class QuranScreen extends StatelessWidget {
         Expanded(
           flex: 61,
           child: ListView.builder(
-            padding: EdgeInsets.all(0),
             itemCount: surahNames.length,
             itemBuilder: (context, index) => InkWell(
               onTap: () {
-                Navigator.pushNamed(context, SurahScreen.routeName, arguments: surahScreenArguments(
+                Navigator.pushNamed(context, SurahContentScreen.routeName, arguments: surahScreenArguments(
                     index: index,
                     surahName: surahNames[index],
                     numberOfAyat: numberOfAyat[index]
@@ -82,19 +84,19 @@ class QuranScreen extends StatelessWidget {
                   Expanded(
                     child: Text(
                       surahNames[index],
-                      style: AppThemeTextStyle.tableHeadTextStyle,
+                      style: provider.isDark ? AppThemeTextStyle.tableContentDarkTextStyle : AppThemeTextStyle.tableContentTextStyle,
                       textAlign: TextAlign.center,
                     ),
                   ),
                   Container(
-                    color: AppThemeColor.primary,
+                    color: provider.isDark ? AppThemeColor.accentDark : AppThemeColor.primary,
                     width: 2.0,
-                    height: MediaQuery.of(context).size.height / 17.35757575757576,
+                    height: MediaQuery.of(context).size.height / 17,
                   ),
                   Expanded(
                     child: Text(
                       numberOfAyat[index].toString(),
-                      style: AppThemeTextStyle.tableHeadTextStyle,
+                      style: provider.isDark ? AppThemeTextStyle.tableContentDarkTextStyle : AppThemeTextStyle.tableContentTextStyle,
                       textAlign: TextAlign.center,
                     ),
                   ),

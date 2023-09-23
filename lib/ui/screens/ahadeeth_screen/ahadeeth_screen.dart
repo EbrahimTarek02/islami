@@ -1,15 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:islami/constants/app_assets.dart';
-import 'package:islami/constants/app_theme_colors.dart';
-import 'package:islami/constants/app_theme_text_style.dart';
-import 'package:islami/ui/hadith_screen/hadith_screen.dart';
+import 'package:islami/providers/settings_provider.dart';
+import 'package:islami/ui/utils/app_assets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+import '../../utils/app_theme_colors.dart';
+import '../../utils/app_theme_text_style.dart';
+import '../hadith_content_screen/hadith_content_screen.dart';
 
 class AhadeethScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    SettingsProvider provider = Provider.of(context);
+
     return Column(
       children: [
         Expanded(
@@ -21,18 +26,18 @@ class AhadeethScreen extends StatelessWidget {
           child: Column(
             children: [
               Divider(
-                color: AppThemeColor.primary,
+                color: provider.isDark ? AppThemeColor.accentDark : AppThemeColor.primary,
                 thickness: 2.0,
                 height: 0.0,
               ),
               Spacer(),
               Text(
                 AppLocalizations.of(context)!.ahadeeth,
-                style: AppThemeTextStyle.tableHeadTextStyle.copyWith(fontSize: 25),
+                style: provider.isDark ? AppThemeTextStyle.tableHeadDarkTextStyle : AppThemeTextStyle.tableHeadTextStyle
               ),
               Spacer(),
               Divider(
-                color: AppThemeColor.primary,
+                color: provider.isDark ? AppThemeColor.accentDark : AppThemeColor.primary,
                 thickness: 2.0,
                 height: 0.0,
               ),
@@ -46,12 +51,12 @@ class AhadeethScreen extends StatelessWidget {
             itemCount: 50,
             itemBuilder: (context, index) => InkWell(
               onTap: () {
-                Navigator.pushNamed(context, HadithScreen.routeName, arguments: index);
+                Navigator.pushNamed(context, HadithContentScreen.routeName, arguments: index);
               },
 
               child: Text(
                 'الحديث رقم ${index + 1}',
-                style: AppThemeTextStyle.tableHeadTextStyle.copyWith(fontSize: 25.0),
+                style: provider.isDark ? AppThemeTextStyle.tableContentDarkTextStyle : AppThemeTextStyle.tableContentTextStyle,
                 textAlign: TextAlign.center,
               ),
             ),

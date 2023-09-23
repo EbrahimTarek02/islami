@@ -15,5 +15,7 @@
   "alQuranAlKarimStation" : "إذاعة القرآن الكريم",
   "settings" : "الإعدادات",
   "darkMode" : "الوضع الليلى",
-  "chooseLanguage" : "اختر اللغة"
+  "chooseLanguage" : "اختر اللغة",
+  "order" : "الترتيب",
+  "ayat" : "آيه"
 }

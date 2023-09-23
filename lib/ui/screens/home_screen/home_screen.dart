@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:islami/constants/app_assets.dart';
-import 'package:islami/constants/app_theme_colors.dart';
-import 'package:islami/constants/app_theme_text_style.dart';
-import 'package:islami/ui/ahadeeth_screen/ahadeeth_screen.dart';
-import 'package:islami/ui/quran_screen/quran_screen.dart';
-import 'package:islami/ui/radio_screen/radio_screen.dart';
-import 'package:islami/ui/sebha_screen/sebha_screen.dart';
+import 'package:islami/providers/settings_provider.dart';
+import 'package:islami/ui/utils/app_assets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:islami/ui/settings_screen/settings_screen.dart';
+import 'package:provider/provider.dart';
+import '../../utils/app_theme_colors.dart';
+import '../../utils/app_theme_text_style.dart';
+import '../ahadeeth_screen/ahadeeth_screen.dart';
+import '../quran_screen/quran_screen.dart';
+import '../radio_screen/radio_screen.dart';
+import '../sebha_screen/sebha_screen.dart';
+import '../settings_screen/settings_screen.dart';
 
 class HomeScreen extends StatefulWidget {
 
@@ -31,11 +33,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
 
+    SettingsProvider provider = Provider.of(context);
+
     return Container(
 
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(AppAssets.background),
+          image: AssetImage(provider.isDark ? AppAssets.backgroundDark : AppAssets.backgroundLight),
           fit: BoxFit.cover
         )
       ),
@@ -44,28 +48,29 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: AppThemeColor.transparent,
 
         appBar: AppBar(
-          backgroundColor: AppThemeColor.transparent,
           title: Text(
             AppLocalizations.of(context)!.islami,
-            style: AppThemeTextStyle.appBarTextStyle,
+            style: provider.isDark ? AppThemeTextStyle.appBarDarkTextStyle : AppThemeTextStyle.appBarTextStyle,
           ),
-          centerTitle: true,
-          elevation: 0.0,
         ),
 
-        bottomNavigationBar: bottomNavigationBarBuilder(),
+        bottomNavigationBar: bottomNavigationBarBuilder(provider),
 
         body: screens[currentIndex],
       ),
     );
   }
 
-  Widget bottomNavigationBarBuilder() {
+  Widget bottomNavigationBarBuilder(SettingsProvider provider) {
     return Theme(
-      data: ThemeData().copyWith(canvasColor: AppThemeColor.primary),
+      data: ThemeData().copyWith(canvasColor: provider.isDark ? AppThemeColor.primaryDark : AppThemeColor.primary),
+
       child: BottomNavigationBar(
         iconSize: 35.0,
-        selectedItemColor: AppThemeColor.accent,
+
+        selectedItemColor: provider.isDark ? AppThemeColor.accentDark : AppThemeColor.accent,
+
+        selectedLabelStyle: provider.isDark ? AppThemeTextStyle.bottomNavBarLabelsDarkTextStyle : AppThemeTextStyle.bottomNavBarLabelsTextStyle,
 
         currentIndex: currentIndex,
 

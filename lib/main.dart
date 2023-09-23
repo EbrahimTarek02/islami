@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:islami/providers/settings_provider.dart';
-import 'package:islami/ui/hadith_screen/hadith_screen.dart';
-import 'package:islami/ui/home_screen/home_screen.dart';
-import 'package:islami/ui/surah_screen/surah_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami/ui/screens/hadith_content_screen/hadith_content_screen.dart';
+import 'package:islami/ui/screens/home_screen/home_screen.dart';
+import 'package:islami/ui/screens/surah_content_screen/surah_content_screen.dart';
+import 'package:islami/ui/utils/app_theme_data.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -39,8 +40,8 @@ class MyApp extends StatelessWidget {
 
       routes: {
         HomeScreen.routeName : (_) => HomeScreen(),
-        SurahScreen.routeName : (_) => SurahScreen(),
-        HadithScreen.routeName : (_) => HadithScreen(),
+        SurahContentScreen.routeName : (_) => SurahContentScreen(),
+        HadithContentScreen.routeName : (_) => HadithContentScreen(),
       },
 
       initialRoute: HomeScreen.routeName,
@@ -49,6 +50,9 @@ class MyApp extends StatelessWidget {
 
       themeMode: provider.isDark ? ThemeMode.dark : ThemeMode.light,
 
+      theme: AppThemeData.lightThemeData,
+
+      darkTheme: AppThemeData.darkThemeData,
     );
   }
 }

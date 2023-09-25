@@ -11,7 +11,6 @@ abstract class AppThemeData {
       elevation: 0.0,
     ),
 
-
   );
 
   static ThemeData darkThemeData = ThemeData(

@@ -22,6 +22,8 @@ class MyApp extends StatelessWidget {
 
     SettingsProvider provider = Provider.of(context);
 
+    provider.getInitialData();
+
     return MaterialApp(
 
       localizationsDelegates: [

@@ -17,5 +17,7 @@
   "darkMode" : "الوضع الليلى",
   "chooseLanguage" : "اختر اللغة",
   "order" : "الترتيب",
-  "ayat" : "آيه"
+  "ayat" : "آيه",
+  "saveChanges" : "حفظ التعديلات",
+  "pleaseEnterAValidNumber" : "برجاء إدخال رقم صحيح"
 }

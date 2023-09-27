@@ -17,5 +17,7 @@
   "darkMode" : "Dark Mode",
   "chooseLanguage" : "Choose Language",
   "order" : "Order",
-  "ayat" : "āyāt"
+  "ayat" : "āyāt",
+  "saveChanges" : "Save Changes",
+  "pleaseEnterAValidNumber" : "Please enter a valid number"
 }

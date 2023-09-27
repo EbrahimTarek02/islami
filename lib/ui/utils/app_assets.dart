@@ -2,6 +2,8 @@ abstract class AppAssets {
 
   // images
   static const String imagesPath = 'assets/images/';
+  static const String splashLight = '${imagesPath}splash.png';
+  static const String splashDark = '${imagesPath}splash_dark.png';
   static const String icQuran = '${imagesPath}quran_tab.png';
   static const String icAhadeeth = '${imagesPath}ahadeeth_tab.png';
   static const String icSebha = '${imagesPath}sebha_tab.png';

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami/providers/settings_provider.dart';
 import 'package:islami/ui/utils/app_assets.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import '../../utils/app_theme_colors.dart';
 import '../../utils/app_theme_text_style.dart';
@@ -10,6 +9,7 @@ import '../quran_screen/quran_screen.dart';
 import '../radio_screen/radio_screen.dart';
 import '../sebha_screen/sebha_screen.dart';
 import '../settings_screen/settings_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
 

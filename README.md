@@ -13,3 +13,8 @@ Sebha Counter: Facilitate the practice of dhikr (remembrance of Allah) with a di
 Islamic Radio: Tune in to a selection of Islamic radio stations offering recitations of the Quran, sermons, lectures, nasheeds (Islamic songs), and more. Enhance your spiritual journey with enriching audio content curated for Muslim listeners.
 
 Dual Themes: Choose between light and dark themes to customize the app's appearance according to your preference and ambient lighting conditions. Enjoy a comfortable reading experience regardless of the time of day or night.
+
+## Screenshots
+<img src="screenshots/IMG-20240824-WA0038.jpg" width="200" height="400" /> <img src="screenshots/IMG-20240824-WA0040.jpg" width="200" height="400" /> <img src="screenshots/IMG-20240824-WA0039.jpg" width="200" height="400" /> <img src="screenshots/IMG-20240824-WA0041.jpg" width="200" height="400" /> <img src="screenshots/IMG-20240824-WA0042.jpg" width="200" height="400" /> <img src="screenshots/IMG-20240824-WA0043.jpg" width="200" height="400" /> <img src="screenshots/IMG-20240824-WA0046.jpg" width="200" height="400" />
+
+<img src="screenshots/IMG-20240824-WA0045.jpg" width="200" height="400" /> <img src="screenshots/IMG-20240824-WA0044.jpg" width="200" height="400" /> <img src="screenshots/IMG-20240824-WA0048.jpg" width="200" height="400" /> <img src="screenshots/IMG-20240824-WA0047.jpg" width="200" height="400" />

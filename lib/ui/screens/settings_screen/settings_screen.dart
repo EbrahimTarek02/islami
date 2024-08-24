@@ -6,6 +6,8 @@ import '../../utils/app_theme_colors.dart';
 import '../../utils/app_theme_text_style.dart';
 
 class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +16,8 @@ class SettingsScreen extends StatelessWidget {
 
     return Center(
       child: Container(
-        margin: EdgeInsets.all(30.0),
-        padding: EdgeInsets.all(20.0),
+        margin: const EdgeInsets.all(30.0),
+        padding: const EdgeInsets.all(20.0),
         decoration: BoxDecoration(
           color: provider.isDark ? AppThemeColor.primaryDark : AppThemeColor.white,
           borderRadius: BorderRadius.circular(20.0),
@@ -44,12 +46,12 @@ class SettingsScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 12,),
+            const SizedBox(height: 12,),
             DropdownButton(
               isExpanded: true,
-              items: [
-                DropdownMenuItem(child: Text('العربية'), value: 'ar',),
-                DropdownMenuItem(child: Text('English'), value: 'en',),
+              items: const [
+                DropdownMenuItem(value: 'ar',child: Text('العربية'),),
+                DropdownMenuItem(value: 'en',child: Text('English'),),
               ],
               hint: Text(
                 AppLocalizations.of(context)!.chooseLanguage,

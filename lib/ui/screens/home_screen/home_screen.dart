@@ -15,6 +15,8 @@ class HomeScreen extends StatefulWidget {
 
   static const String routeName = 'home screen route name';
 
+  const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -24,10 +26,10 @@ class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
   List<Widget> screens = [
     QuranScreen(),
-    AhadeethScreen(),
-    SebhaScreen(),
-    RadioScreen(),
-    SettingsScreen()
+    const AhadeethScreen(),
+    const SebhaScreen(),
+    const RadioScreen(),
+    const SettingsScreen()
   ];
 
   @override
@@ -40,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(provider.isDark ? AppAssets.backgroundDark : AppAssets.backgroundLight),
-          fit: BoxFit.cover
+          fit: BoxFit.fill
         )
       ),
 
@@ -76,28 +78,27 @@ class _HomeScreenState extends State<HomeScreen> {
 
         onTap: (index){
           currentIndex = index;
-          setState(() {});
         },
 
         items: [
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(AppAssets.icQuran)),
+            icon: const ImageIcon(AssetImage(AppAssets.icQuran)),
             label: AppLocalizations.of(context)!.quran,
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(AppAssets.icAhadeeth)),
+            icon: const ImageIcon(AssetImage(AppAssets.icAhadeeth)),
             label: AppLocalizations.of(context)!.ahadeeth,
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(AppAssets.icSebha)),
+            icon: const ImageIcon(AssetImage(AppAssets.icSebha)),
             label: AppLocalizations.of(context)!.sebha,
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(AppAssets.icRadio)),
+            icon: const ImageIcon(AssetImage(AppAssets.icRadio)),
             label: AppLocalizations.of(context)!.radio,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
             label: AppLocalizations.of(context)!.settings,
           ),
         ],

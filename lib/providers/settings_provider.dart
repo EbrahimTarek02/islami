@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsProvider extends ChangeNotifier {
   bool isDark = false;
-  String currentLanguage = 'en';
+  String currentLanguage = 'ar';
   int counter = 0, index = 0;
   double rotationAngle = 0.0;
 
@@ -25,7 +25,7 @@ class SettingsProvider extends ChangeNotifier {
   void getInitialData() async{
     final prefs = await SharedPreferences.getInstance();
     isDark = (prefs.getBool('isDark') ?? false);
-    currentLanguage = (prefs.getString('currentLanguage') ?? 'en');
+    currentLanguage = (prefs.getString('currentLanguage') ?? 'ar');
     prefs.setBool('isDark', isDark);
     prefs.setString('currentLanguage', currentLanguage);
     notifyListeners();

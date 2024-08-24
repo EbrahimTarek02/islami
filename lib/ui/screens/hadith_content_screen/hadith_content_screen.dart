@@ -11,6 +11,8 @@ class HadithContentScreen extends StatefulWidget {
 
   static const String routeName = 'hadith screen route name';
 
+  const HadithContentScreen({super.key});
+
   @override
   State<HadithContentScreen> createState() => _HadithContentScreenState();
 }
@@ -66,8 +68,8 @@ class _HadithContentScreenState extends State<HadithContentScreen> {
         body: hadith.isNotEmpty ?
         Center(
           child: Container(
-            margin: EdgeInsets.all(20.0),
-            padding: EdgeInsets.all(20.0),
+            margin: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(20.0),
             decoration: BoxDecoration(
               color: provider.isDark ? AppThemeColor.primaryDark : AppThemeColor.white,
               borderRadius: BorderRadius.circular(25.0),

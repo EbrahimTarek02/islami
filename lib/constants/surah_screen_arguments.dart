@@ -1,6 +1,6 @@
-class surahScreenArguments {
+class SurahScreenArguments {
   int index, numberOfAyat;
   String surahName;
 
-  surahScreenArguments({required this.index, required this.numberOfAyat, required this.surahName});
+  SurahScreenArguments({required this.index, required this.numberOfAyat, required this.surahName});
 }

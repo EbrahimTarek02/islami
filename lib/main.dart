@@ -12,11 +12,13 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 void main() {
   runApp(ChangeNotifierProvider(
     create: (_) => SettingsProvider(),
-    child: MyApp()
+    child: const MyApp()
   ));
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,14 +29,14 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
 
-      localizationsDelegates: [
+      localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
 
-      supportedLocales: [
+      supportedLocales: const [
         Locale('en'),
         Locale('ar'),
       ],
@@ -42,10 +44,10 @@ class MyApp extends StatelessWidget {
       locale: Locale(provider.currentLanguage),
 
       routes: {
-        SplashScreen.routeName : (_) => SplashScreen(),
-        HomeScreen.routeName : (_) => HomeScreen(),
-        SurahContentScreen.routeName : (_) => SurahContentScreen(),
-        HadithContentScreen.routeName : (_) => HadithContentScreen(),
+        SplashScreen.routeName : (_) => const SplashScreen(),
+        HomeScreen.routeName : (_) => const HomeScreen(),
+        SurahContentScreen.routeName : (_) => const SurahContentScreen(),
+        HadithContentScreen.routeName : (_) => const HadithContentScreen(),
       },
 
       initialRoute: SplashScreen.routeName,

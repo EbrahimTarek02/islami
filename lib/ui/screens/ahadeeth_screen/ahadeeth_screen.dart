@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/providers/settings_provider.dart';
 import 'package:islami/ui/utils/app_assets.dart';
@@ -9,6 +8,8 @@ import '../../utils/app_theme_text_style.dart';
 import '../hadith_content_screen/hadith_content_screen.dart';
 
 class AhadeethScreen extends StatelessWidget {
+  const AhadeethScreen({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,12 +31,12 @@ class AhadeethScreen extends StatelessWidget {
                 thickness: 2.0,
                 height: 0.0,
               ),
-              Spacer(),
+              const Spacer(),
               Text(
                 AppLocalizations.of(context)!.ahadeeth,
                 style: provider.isDark ? AppThemeTextStyle.tableHeadDarkTextStyle : AppThemeTextStyle.tableHeadTextStyle
               ),
-              Spacer(),
+              const Spacer(),
               Divider(
                 color: provider.isDark ? AppThemeColor.accentDark : AppThemeColor.primary,
                 thickness: 2.0,
@@ -47,7 +48,7 @@ class AhadeethScreen extends StatelessWidget {
         Expanded(
           flex: 65,
           child: ListView.builder(
-            padding: EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.only(top: 10),
             itemCount: 50,
             itemBuilder: (context, index) => InkWell(
               onTap: () {

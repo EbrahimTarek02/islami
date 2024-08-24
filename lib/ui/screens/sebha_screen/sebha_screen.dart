@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/providers/settings_provider.dart';
 import 'package:islami/ui/utils/app_assets.dart';
@@ -8,6 +7,8 @@ import '../../utils/app_theme_colors.dart';
 import '../../utils/app_theme_text_style.dart';
 
 class SebhaScreen extends StatefulWidget {
+  const SebhaScreen({super.key});
+
 
   @override
   State<SebhaScreen> createState() => _SebhaScreenState();
@@ -42,27 +43,32 @@ class _SebhaScreenState extends State<SebhaScreen> {
       children: [
         Expanded(
           flex: 52,
-          child: Stack(
-            alignment: AlignmentDirectional.topCenter,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: sebhaPadding),
-                child: Image.asset(
-                  provider.isDark ? AppAssets.headOfSebhaDark : AppAssets.headOfSebha,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Align(
-                alignment: AlignmentDirectional.bottomCenter,
-                child: Transform.rotate(
-                  angle: rotationAngle,
+          child: InkWell(
+            onTap: () => onSebhaClick(numberOfTasbeehat),
+            splashFactory: NoSplash.splashFactory,
+            highlightColor: AppThemeColor.transparent,
+            child: Stack(
+              alignment: AlignmentDirectional.topCenter,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: sebhaPadding),
                   child: Image.asset(
-                    provider.isDark ? AppAssets.bodyOfSebhaDark : AppAssets.bodyOfSebha,
-                    // height: MediaQuery.of(context).size.height / 3.43,
+                    provider.isDark ? AppAssets.headOfSebhaDark : AppAssets.headOfSebha,
+                    fit: BoxFit.cover,
                   ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional.bottomCenter,
+                  child: Transform.rotate(
+                    angle: rotationAngle,
+                    child: Image.asset(
+                      provider.isDark ? AppAssets.bodyOfSebhaDark : AppAssets.bodyOfSebha,
+                      // height: MediaQuery.of(context).size.height / 3.43,
+                    ),
+                  )
                 )
-              )
-            ],
+              ],
+            ),
           ),
         ),
         Expanded(
@@ -71,38 +77,24 @@ class _SebhaScreenState extends State<SebhaScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
               children: [
-                Spacer(flex: 35,),
+                const Spacer(flex: 35,),
                 Text(
                   AppLocalizations.of(context)!.numberOfTasbeehat,
                   style: provider.isDark ? AppThemeTextStyle.tableHeadDarkTextStyle : AppThemeTextStyle.tableHeadTextStyle,
                 ),
-                // Container(
-                //   decoration: BoxDecoration(
-                //     color: provider.isDark ? AppThemeColor.primaryDark : AppThemeColor.primary,
-                //     borderRadius: BorderRadius.circular(20.0),
-                //   ),
-                //
-                //   padding: EdgeInsets.all(20.0),
-                //   margin: EdgeInsets.symmetric(vertical: 20.0),
-                //
-                //   child: Text(
-                //     '${counter} / 33',
-                //     style: provider.isDark ? AppThemeTextStyle.tableContentDarkTextStyle : AppThemeTextStyle.tableContentTextStyle,
-                //   ),
-                // ),
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 20.0),
+                  margin: const EdgeInsets.symmetric(vertical: 20.0),
                   child: ElevatedButton(
                     onPressed: () => changeCounterClick(),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: provider.isDark ? AppThemeColor.accentDark : AppThemeColor.primary,
-                      padding: EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.all(20.0),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20.0)
                       ),
                     ),
                     child: Text(
-                      '${counter} / ${numberOfTasbeehat}',
+                      '$counter / $numberOfTasbeehat',
                       style: provider.isDark ? AppThemeTextStyle.tableContentDarkTextStyle : AppThemeTextStyle.tableContentTextStyle,
                     ),
                   ),
@@ -111,7 +103,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
                   onPressed: () => onSebhaClick(numberOfTasbeehat),
                   style: ElevatedButton.styleFrom(
                       backgroundColor: provider.isDark ? AppThemeColor.accentDark : AppThemeColor.primary,
-                      padding: EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.all(20.0),
                       shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20.0)
                     ),
@@ -122,7 +114,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
                     textAlign: TextAlign.center,
                   ),
                 ),
-                Spacer(flex: 65,),
+                const Spacer(flex: 65,),
               ],
             ),
           ),
@@ -147,7 +139,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
       isScrollControlled: true,
       backgroundColor: provider.isDark ? AppThemeColor.primaryDark : AppThemeColor.white,
       context: context,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30.0),
             topRight: Radius.circular(30.0)),
@@ -177,13 +169,13 @@ class _SebhaScreenState extends State<SebhaScreen> {
                 labelStyle: provider.isDark ? AppThemeTextStyle.tableContentDarkTextStyle : AppThemeTextStyle.tableContentTextStyle,
               ),
             ),
-            SizedBox(height: 20.0,),
+            const SizedBox(height: 20.0,),
             ElevatedButton(
               onPressed: () => onSaveClick(),
 
               style: ElevatedButton.styleFrom(
                 backgroundColor: provider.isDark ? AppThemeColor.accentDark : AppThemeColor.primary,
-                padding: EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(20.0),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0)
                 ),
@@ -194,7 +186,7 @@ class _SebhaScreenState extends State<SebhaScreen> {
                 style: provider.isDark ? AppThemeTextStyle.tableContentDarkTextStyle : AppThemeTextStyle.tableContentTextStyle,
               ),
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
           ],
         ),
       )

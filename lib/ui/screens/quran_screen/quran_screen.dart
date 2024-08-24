@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:islami/providers/settings_provider.dart';
 import 'package:islami/ui/utils/app_assets.dart';
 import 'package:islami/ui/utils/app_constants.dart';
@@ -12,8 +11,10 @@ import '../surah_content_screen/surah_content_screen.dart';
 
 class QuranScreen extends StatelessWidget {
 
-  List <String> surahNames = AppConstants.surahNames;
-  List <int> numberOfAyat = AppConstants.numberOfAyat;
+  final List <String> surahNames = AppConstants.surahNames;
+  final List <int> numberOfAyat = AppConstants.numberOfAyat;
+
+  QuranScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +74,7 @@ class QuranScreen extends StatelessWidget {
             itemCount: surahNames.length,
             itemBuilder: (context, index) => InkWell(
               onTap: () {
-                Navigator.pushNamed(context, SurahContentScreen.routeName, arguments: surahScreenArguments(
+                Navigator.pushNamed(context, SurahContentScreen.routeName, arguments: SurahScreenArguments(
                     index: index,
                     surahName: surahNames[index],
                     numberOfAyat: numberOfAyat[index]

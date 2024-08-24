@@ -5,10 +5,11 @@ abstract class AppThemeData {
   static ThemeData lightThemeData = ThemeData(
     primaryColor: AppThemeColor.primary,
 
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: AppThemeColor.transparent,
       centerTitle: true,
       elevation: 0.0,
+      scrolledUnderElevation: 0.0
     ),
 
   );
@@ -16,10 +17,11 @@ abstract class AppThemeData {
   static ThemeData darkThemeData = ThemeData(
     primaryColor: AppThemeColor.primaryDark,
 
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: AppThemeColor.transparent,
       centerTitle: true,
       elevation: 0.0,
+      scrolledUnderElevation: 0.0
     ),
 
   );

@@ -12,6 +12,8 @@ class SurahContentScreen extends StatefulWidget {
 
   static const String routeName = 'surah screen route name';
 
+  const SurahContentScreen({super.key});
+
   @override
   State<SurahContentScreen> createState() => _SurahContentScreenState();
 }
@@ -25,7 +27,7 @@ class _SurahContentScreenState extends State<SurahContentScreen> {
 
     SettingsProvider provider = Provider.of(context);
 
-    var args = ModalRoute.of(context)!.settings.arguments as surahScreenArguments;
+    var args = ModalRoute.of(context)!.settings.arguments as SurahScreenArguments;
 
     void readFile() async{
       if (surahContent.isNotEmpty){
@@ -35,7 +37,7 @@ class _SurahContentScreenState extends State<SurahContentScreen> {
       surahContent = await rootBundle.loadString('${AppAssets.surah}${args.index + 1}.txt');
 
       for (int i = 0; i < args.numberOfAyat; i++) {
-        if (i == args.numberOfAyat - 1 && surahContent.indexOf('\n') == -1){
+        if (i == args.numberOfAyat - 1 && !surahContent.contains('\n')){
           surahContent += '(${i + 1}) ';
         }
         else{
@@ -73,8 +75,8 @@ class _SurahContentScreenState extends State<SurahContentScreen> {
         body: surahContent.isNotEmpty ?
         Center(
           child: Container(
-            margin: EdgeInsets.all(20.0),
-            padding: EdgeInsets.all(20.0),
+            margin: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(20.0),
             decoration: BoxDecoration(
               color: provider.isDark ? AppThemeColor.primaryDark : AppThemeColor.white,
               borderRadius: BorderRadius.circular(25.0),
@@ -122,12 +124,12 @@ class _SurahContentScreenState extends State<SurahContentScreen> {
                       'بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم',
                       style: provider.isDark ? AppThemeTextStyle.tableContentDarkTextStyle.copyWith(fontSize: 20.0)
                           : AppThemeTextStyle.tableContentTextStyle.copyWith(fontSize: 20.0),
-                  ) : SizedBox(),
+                  ) : const SizedBox(),
                   Text(
                     surahContent,
                     textDirection: TextDirection.rtl,
-                    style: provider.isDark ? AppThemeTextStyle.tableContentDarkTextStyle.copyWith(fontSize: 20.0)
-                        : AppThemeTextStyle.tableContentTextStyle.copyWith(fontSize: 20.0),
+                    style: provider.isDark ? AppThemeTextStyle.tableContentDarkTextStyle.copyWith(fontSize: 20.0, fontFamily: 'Montserrat',)
+                        : AppThemeTextStyle.tableContentTextStyle.copyWith(fontSize: 20.0, fontFamily: 'Montserrat',),
                   ),
                   Text(
                     'صَدَقَ اللهُ العَظيمُ',
